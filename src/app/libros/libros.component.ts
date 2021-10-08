@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LibrosServices } from '../services/libros.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-libros',
   templateUrl: './libros.component.html',
 })
-export class LibrosComponent implements OnInit {
+export class LibrosComponent implements OnInit, OnDestroy {
 
 
    libros = new Array;
-  constructor(private librosServices: LibrosServices){
+  constructor(private librosServices: LibrosServices){}
 
-  }
+  private libroSubscription!: Subscription;
 
   eliminarLibro(libro: string){
   }
@@ -24,8 +25,12 @@ export class LibrosComponent implements OnInit {
 
   ngOnInit(){
     this.libros = this.librosServices.obtenerLibros();
-    this.librosServices.librosSubject.subscribe(() => {
+    this.libroSubscription = this.librosServices.librosSubject.subscribe(() => {
       this.libros = this.librosServices.obtenerLibros();
     });
+  }
+
+  ngOnDestroy(){
+    this.libroSubscription.unsubscribe();
   }
 }

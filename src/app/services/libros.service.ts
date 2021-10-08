@@ -10,6 +10,11 @@ export class LibrosServices {
     return [...this.libros];
   }
 
+  eliminarLibro(libroNombre: string){
+  this.libros =  this.libros.filter(x => x !== libroNombre);
+  this.librosSubject.next();
+  }
+
   agregarLibro(libroNombre: string) {
     this.libros.push(libroNombre);
     this.librosSubject.next();
