@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './usuario.component';
 import { LibrosComponent } from './libros/libros.component';
 import { LibroComponent } from './libro/libro.component';
+import { InicioComponent } from './inicio.component';
 import { FormsModule } from '@angular/forms';
 import { LibrosServices } from './services/libros.service';
 
@@ -14,7 +15,8 @@ import { LibrosServices } from './services/libros.service';
     AppComponent,
     UsuarioComponent,
     LibrosComponent,
-    LibroComponent
+    LibroComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
