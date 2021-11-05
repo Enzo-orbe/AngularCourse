@@ -9,6 +9,8 @@ import { LibroComponent } from './libro/libro.component';
 import { InicioComponent } from './inicio.component';
 import { FormsModule } from '@angular/forms';
 import { LibrosServices } from './services/libros.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LibrosServices } from './services/libros.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [LibrosServices],
   bootstrap: [AppComponent]
